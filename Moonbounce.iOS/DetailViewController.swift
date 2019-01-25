@@ -8,16 +8,22 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController
+{
 
+    @IBOutlet weak var connectButton: UIButton!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
+        if let detail = detailItem
+        {
+            if let label = detailDescriptionLabel
+            {
+                label.text = detail.name
             }
         }
     }
@@ -28,8 +34,22 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
-        didSet {
+    @IBAction func connectPressed(_ sender: UIButton)
+    {
+        if activityIndicator.isAnimating
+        {
+            activityIndicator.stopAnimating()
+        }
+        else
+        {
+            activityIndicator.startAnimating()
+        } 
+    }
+    
+    var detailItem: MoonbounceConfig?
+    {
+        didSet
+        {
             // Update the view.
             configureView()
         }

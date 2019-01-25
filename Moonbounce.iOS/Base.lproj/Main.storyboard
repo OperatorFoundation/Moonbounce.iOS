@@ -33,15 +33,54 @@
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rbt-hc-1gb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="p8G-Z1-ovV">
+                                <rect key="frame" x="234" y="302" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="8Xk-Ng-maf"/>
+                                    <constraint firstAttribute="height" constant="37" id="GQj-KN-GfD"/>
+                                </constraints>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-fs-Dyi">
+                                <rect key="frame" x="84" y="282" width="207" height="77"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="DPG-Ui-h4p"/>
+                                    <constraint firstAttribute="width" constant="207" id="IKk-T5-3m7"/>
+                                </constraints>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="cIq-sP-C4d"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rbt-hc-1gb" firstAttribute="trailing" secondItem="VUw-jc-0yf" secondAttribute="trailing" id="YHt-da-aO9"/>
+                            <constraint firstItem="rbt-hc-1gb" firstAttribute="bottom" secondItem="svH-Pt-448" secondAttribute="bottom" id="Z2c-gE-K2O"/>
+                            <constraint firstItem="gtB-fs-Dyi" firstAttribute="centerX" secondItem="rbt-hc-1gb" secondAttribute="centerX" id="bZe-Oa-nHL"/>
+                            <constraint firstItem="p8G-Z1-ovV" firstAttribute="centerY" secondItem="gtB-fs-Dyi" secondAttribute="centerY" id="fq2-ct-z8T"/>
+                            <constraint firstItem="rbt-hc-1gb" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" id="fvG-Cp-D1D"/>
+                            <constraint firstItem="rbt-hc-1gb" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="kfn-Sg-tLq"/>
+                            <constraint firstItem="p8G-Z1-ovV" firstAttribute="trailing" secondItem="gtB-fs-Dyi" secondAttribute="trailing" constant="-20" id="rL5-ra-ASC"/>
+                            <constraint firstItem="gtB-fs-Dyi" firstAttribute="centerY" secondItem="rbt-hc-1gb" secondAttribute="centerY" constant="-13" id="xjm-IF-Ki5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="p8G-Z1-ovV" id="5qD-WR-5Iv"/>
+                        <outlet property="connectButton" destination="gtB-fs-Dyi" id="WSy-LY-q4e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="708" y="128.18590704647679"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -117,6 +156,9 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="375" height="812"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
