@@ -10,7 +10,6 @@ import Foundation
 import ReplicantSwift
 import UIKit
 
-
 class MoonbounceConfig: NSObject
 {
     static let filenameExtension = "moonbounce"

@@ -15,25 +15,18 @@
 		468F58AB21E9730100E84ED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468F58A921E9730100E84ED8 /* LaunchScreen.storyboard */; };
 		468F58B621E9730100E84ED8 /* Moonbounce_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F58B521E9730100E84ED8 /* Moonbounce_iOSTests.swift */; };
 		468F58C121E9730100E84ED8 /* Moonbounce_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F58C021E9730100E84ED8 /* Moonbounce_iOSUITests.swift */; };
-		468F590C21E97B7A00E84ED8 /* Replicant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590521E97B7A00E84ED8 /* Replicant.framework */; };
-		468F590D21E97B8200E84ED8 /* Transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590921E97B7A00E84ED8 /* Transport.framework */; };
-		468F590E21E97B8800E84ED8 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590B21E97B7A00E84ED8 /* ZIPFoundation.framework */; };
-		468F590F21E97B8D00E84ED8 /* Datable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590121E97B7A00E84ED8 /* Datable.framework */; };
 		468F591921E97D9F00E84ED8 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F591821E97D9F00E84ED8 /* PacketTunnelProvider.swift */; };
 		468F591E21E97D9F00E84ED8 /* MoonbounceiOSNetworkExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 468F591621E97D9E00E84ED8 /* MoonbounceiOSNetworkExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		468F592421E97DCA00E84ED8 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F592321E97DCA00E84ED8 /* NetworkExtension.framework */; };
 		AEE9429121F278AD00213EE7 /* MoonbounceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */; };
 		AEE9429321F278BE00213EE7 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429221F278BE00213EE7 /* ConfigController.swift */; };
-		AEE942B821F6A2B700213EE7 /* Datable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590121E97B7A00E84ED8 /* Datable.framework */; };
-		AEE942B921F6A2B700213EE7 /* Datable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590121E97B7A00E84ED8 /* Datable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEE942BD21F6A2CE00213EE7 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590B21E97B7A00E84ED8 /* ZIPFoundation.framework */; };
-		AEE942BE21F6A2CE00213EE7 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590B21E97B7A00E84ED8 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEE942C121F6A2E700213EE7 /* Transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590921E97B7A00E84ED8 /* Transport.framework */; };
-		AEE942C221F6A2E700213EE7 /* Transport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590921E97B7A00E84ED8 /* Transport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEE942C521F6A2ED00213EE7 /* Replicant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590521E97B7A00E84ED8 /* Replicant.framework */; };
-		AEE942C621F6A2ED00213EE7 /* Replicant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590521E97B7A00E84ED8 /* Replicant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEE942C921F6A2F300213EE7 /* ReplicantSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590721E97B7A00E84ED8 /* ReplicantSwift.framework */; };
-		AEE942CA21F6A2F300213EE7 /* ReplicantSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468F590721E97B7A00E84ED8 /* ReplicantSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD742210C82500007659 /* Datable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD5C2210C75100007659 /* Datable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD752210C82500007659 /* MoonbounceDependencies.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD762210C82500007659 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD6A2210C75100007659 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD772210C82500007659 /* ReplicantSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD782210C82500007659 /* Transport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD682210C75100007659 /* Transport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA0BBD792210C82500007659 /* INI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD5E2210C75100007659 /* INI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,62 +44,6 @@
 			remoteGlobalIDString = 468F589A21E972FD00E84ED8;
 			remoteInfo = Moonbounce.iOS;
 		};
-		468F58D521E9745C00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "MoonbounceDependencies::MoonbounceDependencies::Product";
-			remoteInfo = MoonbounceDependencies;
-		};
-		468F58D721E9745C00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "MoonbounceDependencies::MoonbounceDependenciesTests::Product";
-			remoteInfo = MoonbounceDependenciesTests;
-		};
-		468F590021E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Datable::Datable::Product";
-			remoteInfo = Datable;
-		};
-		468F590221E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "INI::INI::Product";
-			remoteInfo = INI;
-		};
-		468F590421E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Shapeshifter-Swift-Transports::Replicant::Product";
-			remoteInfo = Replicant;
-		};
-		468F590621E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "ReplicantSwift::ReplicantSwift::Product";
-			remoteInfo = ReplicantSwift;
-		};
-		468F590821E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "Transport::Transport::Product";
-			remoteInfo = Transport;
-		};
-		468F590A21E97B7A00E84ED8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "ZIPFoundation::ZIPFoundation::Product";
-			remoteInfo = ZIPFoundation;
-		};
 		468F591C21E97D9F00E84ED8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 468F589321E972FD00E84ED8 /* Project object */;
@@ -114,40 +51,61 @@
 			remoteGlobalIDString = 468F591521E97D9E00E84ED8;
 			remoteInfo = MoonbounceiOSNetworkExtension;
 		};
-		AEE942BA21F6A2B700213EE7 /* PBXContainerItemProxy */ = {
+		CA0BBD5B2210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "Datable::Datable";
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Datable::Datable::Product";
 			remoteInfo = Datable;
 		};
-		AEE942BF21F6A2CE00213EE7 /* PBXContainerItemProxy */ = {
+		CA0BBD5D2210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "ZIPFoundation::ZIPFoundation";
-			remoteInfo = ZIPFoundation;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "INI::INI::Product";
+			remoteInfo = INI;
 		};
-		AEE942C321F6A2E700213EE7 /* PBXContainerItemProxy */ = {
+		CA0BBD5F2210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "Transport::Transport";
-			remoteInfo = Transport;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "MoonbounceDependencies::MoonbounceDependencies::Product";
+			remoteInfo = MoonbounceDependencies;
 		};
-		AEE942C721F6A2ED00213EE7 /* PBXContainerItemProxy */ = {
+		CA0BBD612210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "Shapeshifter-Swift-Transports::Replicant";
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "MoonbounceDependencies::MoonbounceDependenciesTests::Product";
+			remoteInfo = MoonbounceDependenciesTests;
+		};
+		CA0BBD632210C75100007659 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Shapeshifter-Swift-Transports::Replicant::Product";
 			remoteInfo = Replicant;
 		};
-		AEE942CB21F6A2F300213EE7 /* PBXContainerItemProxy */ = {
+		CA0BBD652210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "ReplicantSwift::ReplicantSwift";
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "ReplicantSwift::ReplicantSwift::Product";
 			remoteInfo = ReplicantSwift;
+		};
+		CA0BBD672210C75100007659 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Transport::Transport::Product";
+			remoteInfo = Transport;
+		};
+		CA0BBD692210C75100007659 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "ZIPFoundation::ZIPFoundation::Product";
+			remoteInfo = ZIPFoundation;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -169,11 +127,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AEE942CA21F6A2F300213EE7 /* ReplicantSwift.framework in Embed Frameworks */,
-				AEE942C221F6A2E700213EE7 /* Transport.framework in Embed Frameworks */,
-				AEE942C621F6A2ED00213EE7 /* Replicant.framework in Embed Frameworks */,
-				AEE942B921F6A2B700213EE7 /* Datable.framework in Embed Frameworks */,
-				AEE942BE21F6A2CE00213EE7 /* ZIPFoundation.framework in Embed Frameworks */,
+				CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */,
+				CA0BBD742210C82500007659 /* Datable.framework in Embed Frameworks */,
+				CA0BBD752210C82500007659 /* MoonbounceDependencies.framework in Embed Frameworks */,
+				CA0BBD762210C82500007659 /* ZIPFoundation.framework in Embed Frameworks */,
+				CA0BBD772210C82500007659 /* ReplicantSwift.framework in Embed Frameworks */,
+				CA0BBD782210C82500007659 /* Transport.framework in Embed Frameworks */,
+				CA0BBD792210C82500007659 /* INI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +155,6 @@
 		468F58BC21E9730100E84ED8 /* Moonbounce.iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Moonbounce.iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		468F58C021E9730100E84ED8 /* Moonbounce_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moonbounce_iOSUITests.swift; sourceTree = "<group>"; };
 		468F58C221E9730100E84ED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoonbounceDependencies.xcodeproj; path = MoonbounceDependencies/MoonbounceDependencies.xcodeproj; sourceTree = "<group>"; };
 		468F591621E97D9E00E84ED8 /* MoonbounceiOSNetworkExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoonbounceiOSNetworkExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		468F591821E97D9F00E84ED8 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		468F591A21E97D9F00E84ED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +162,7 @@
 		468F592321E97DCA00E84ED8 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonbounceConfig.swift; sourceTree = "<group>"; };
 		AEE9429221F278BE00213EE7 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
+		CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoonbounceDependencies.xcodeproj; path = MoonbounceDependencies/MoonbounceDependencies.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,15 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEE942C921F6A2F300213EE7 /* ReplicantSwift.framework in Frameworks */,
-				AEE942C121F6A2E700213EE7 /* Transport.framework in Frameworks */,
-				AEE942C521F6A2ED00213EE7 /* Replicant.framework in Frameworks */,
-				468F590F21E97B8D00E84ED8 /* Datable.framework in Frameworks */,
-				468F590E21E97B8800E84ED8 /* ZIPFoundation.framework in Frameworks */,
-				AEE942B821F6A2B700213EE7 /* Datable.framework in Frameworks */,
-				468F590D21E97B8200E84ED8 /* Transport.framework in Frameworks */,
-				468F590C21E97B7A00E84ED8 /* Replicant.framework in Frameworks */,
-				AEE942BD21F6A2CE00213EE7 /* ZIPFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,12 +201,12 @@
 		468F589221E972FD00E84ED8 = {
 			isa = PBXGroup;
 			children = (
+				CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */,
 				468F589D21E972FD00E84ED8 /* Moonbounce.iOS */,
 				468F58B421E9730100E84ED8 /* Moonbounce.iOSTests */,
 				468F58BF21E9730100E84ED8 /* Moonbounce.iOSUITests */,
 				468F591721E97D9F00E84ED8 /* MoonbounceiOSNetworkExtension */,
 				468F589C21E972FD00E84ED8 /* Products */,
-				468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */,
 				468F58EF21E97B7A00E84ED8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -305,21 +256,6 @@
 			path = Moonbounce.iOSUITests;
 			sourceTree = "<group>";
 		};
-		468F58CF21E9745B00E84ED8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				468F590121E97B7A00E84ED8 /* Datable.framework */,
-				468F590321E97B7A00E84ED8 /* INI.framework */,
-				468F58D621E9745C00E84ED8 /* MoonbounceDependencies.framework */,
-				468F58D821E9745C00E84ED8 /* MoonbounceDependenciesTests.xctest */,
-				468F590521E97B7A00E84ED8 /* Replicant.framework */,
-				468F590721E97B7A00E84ED8 /* ReplicantSwift.framework */,
-				468F590921E97B7A00E84ED8 /* Transport.framework */,
-				468F590B21E97B7A00E84ED8 /* ZIPFoundation.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		468F58EF21E97B7A00E84ED8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +290,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		CA0BBD3F2210C75100007659 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA0BBD5C2210C75100007659 /* Datable.framework */,
+				CA0BBD5E2210C75100007659 /* INI.framework */,
+				CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */,
+				CA0BBD622210C75100007659 /* MoonbounceDependenciesTests.xctest */,
+				CA0BBD642210C75100007659 /* Replicant.framework */,
+				CA0BBD662210C75100007659 /* ReplicantSwift.framework */,
+				CA0BBD682210C75100007659 /* Transport.framework */,
+				CA0BBD6A2210C75100007659 /* ZIPFoundation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,11 +322,6 @@
 			);
 			dependencies = (
 				468F591D21E97D9F00E84ED8 /* PBXTargetDependency */,
-				AEE942BB21F6A2B700213EE7 /* PBXTargetDependency */,
-				AEE942C021F6A2CE00213EE7 /* PBXTargetDependency */,
-				AEE942C421F6A2E700213EE7 /* PBXTargetDependency */,
-				AEE942C821F6A2ED00213EE7 /* PBXTargetDependency */,
-				AEE942CC21F6A2F300213EE7 /* PBXTargetDependency */,
 			);
 			name = Moonbounce.iOS;
 			productName = Moonbounce.iOS;
@@ -482,8 +428,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 468F58CF21E9745B00E84ED8 /* Products */;
-					ProjectRef = 468F58CE21E9745B00E84ED8 /* MoonbounceDependencies.xcodeproj */;
+					ProductGroup = CA0BBD3F2210C75100007659 /* Products */;
+					ProjectRef = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -497,60 +443,60 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		468F58D621E9745C00E84ED8 /* MoonbounceDependencies.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MoonbounceDependencies.framework;
-			remoteRef = 468F58D521E9745C00E84ED8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		468F58D821E9745C00E84ED8 /* MoonbounceDependenciesTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = MoonbounceDependenciesTests.xctest;
-			remoteRef = 468F58D721E9745C00E84ED8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		468F590121E97B7A00E84ED8 /* Datable.framework */ = {
+		CA0BBD5C2210C75100007659 /* Datable.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Datable.framework;
-			remoteRef = 468F590021E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD5B2210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		468F590321E97B7A00E84ED8 /* INI.framework */ = {
+		CA0BBD5E2210C75100007659 /* INI.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = INI.framework;
-			remoteRef = 468F590221E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD5D2210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		468F590521E97B7A00E84ED8 /* Replicant.framework */ = {
+		CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MoonbounceDependencies.framework;
+			remoteRef = CA0BBD5F2210C75100007659 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA0BBD622210C75100007659 /* MoonbounceDependenciesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = MoonbounceDependenciesTests.xctest;
+			remoteRef = CA0BBD612210C75100007659 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA0BBD642210C75100007659 /* Replicant.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Replicant.framework;
-			remoteRef = 468F590421E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD632210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		468F590721E97B7A00E84ED8 /* ReplicantSwift.framework */ = {
+		CA0BBD662210C75100007659 /* ReplicantSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReplicantSwift.framework;
-			remoteRef = 468F590621E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD652210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		468F590921E97B7A00E84ED8 /* Transport.framework */ = {
+		CA0BBD682210C75100007659 /* Transport.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Transport.framework;
-			remoteRef = 468F590821E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD672210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		468F590B21E97B7A00E84ED8 /* ZIPFoundation.framework */ = {
+		CA0BBD6A2210C75100007659 /* ZIPFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ZIPFoundation.framework;
-			remoteRef = 468F590A21E97B7A00E84ED8 /* PBXContainerItemProxy */;
+			remoteRef = CA0BBD692210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -643,31 +589,6 @@
 			isa = PBXTargetDependency;
 			target = 468F591521E97D9E00E84ED8 /* MoonbounceiOSNetworkExtension */;
 			targetProxy = 468F591C21E97D9F00E84ED8 /* PBXContainerItemProxy */;
-		};
-		AEE942BB21F6A2B700213EE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Datable;
-			targetProxy = AEE942BA21F6A2B700213EE7 /* PBXContainerItemProxy */;
-		};
-		AEE942C021F6A2CE00213EE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZIPFoundation;
-			targetProxy = AEE942BF21F6A2CE00213EE7 /* PBXContainerItemProxy */;
-		};
-		AEE942C421F6A2E700213EE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Transport;
-			targetProxy = AEE942C321F6A2E700213EE7 /* PBXContainerItemProxy */;
-		};
-		AEE942C821F6A2ED00213EE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Replicant;
-			targetProxy = AEE942C721F6A2ED00213EE7 /* PBXContainerItemProxy */;
-		};
-		AEE942CC21F6A2F300213EE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ReplicantSwift;
-			targetProxy = AEE942CB21F6A2F300213EE7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

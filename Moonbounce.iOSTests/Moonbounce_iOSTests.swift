@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Moonbounce_iOS
+//@testable import Moonbounce_iOS
 
 class Moonbounce_iOSTests: XCTestCase {
 
