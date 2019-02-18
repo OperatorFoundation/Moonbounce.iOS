@@ -9,6 +9,8 @@
 import Foundation
 import ReplicantSwift
 import UIKit
+import Network
+import NetworkExtension
 
 class MoonbounceConfig: NSObject
 {
@@ -16,11 +18,8 @@ class MoonbounceConfig: NSObject
     
     let fileManager = FileManager.default
     let replicantConfig: ReplicantConfig
-    
     var name: String
-    
-    
-    
+
     init(name: String, replicantConfig: ReplicantConfig)
     {
         self.name = name

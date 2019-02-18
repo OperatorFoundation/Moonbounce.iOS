@@ -18,13 +18,14 @@ let package = Package(
         .package(url: "https://github.com/Bouke/INI", from: "1.2.0"),
         .package(url: "https://github.com/OperatorFoundation/Datable", from: "1.0.5"),
         .package(url: "https://github.com/OperatorFoundation/ReplicantSwift", from: "0.2.3"),
+        .package(url: "https://github.com/OperatorFoundation/SwiftQueue.git", from: "0.0.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MoonbounceDependencies",
-            dependencies: ["ZIPFoundation", "INI", "Datable", "Replicant", "ReplicantSwift"]),
+            dependencies: ["ZIPFoundation", "INI", "Datable", "Replicant", "ReplicantSwift", "SwiftQueue"]),
         .testTarget(
             name: "MoonbounceDependenciesTests",
             dependencies: ["MoonbounceDependencies"]),
