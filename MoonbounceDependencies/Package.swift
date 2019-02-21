@@ -15,9 +15,9 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/weichsel/ZIPFoundation", from: "0.9.6"),
         .package(url: "https://github.com/OperatorFoundation/Shapeshifter-Swift-Transports", from: "0.3.10"),
-        .package(url: "https://github.com/Bouke/INI", from: "1.2.0"),
         .package(url: "https://github.com/OperatorFoundation/Datable", from: "1.0.5"),
         .package(url: "https://github.com/OperatorFoundation/ReplicantSwift", from: "0.2.3"),
+        .package(url: "https://github.com/OperatorFoundation/Flower", from: "0.0.6"),
         .package(url: "https://github.com/OperatorFoundation/SwiftQueue.git", from: "0.0.3")
     ],
     targets: [
@@ -25,7 +25,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MoonbounceDependencies",
-            dependencies: ["ZIPFoundation", "INI", "Datable", "Replicant", "ReplicantSwift", "SwiftQueue"]),
+            dependencies: ["ZIPFoundation", "Datable", "Replicant", "ReplicantSwift", "Flower", "SwiftQueue"]),
         .testTarget(
             name: "MoonbounceDependenciesTests",
             dependencies: ["MoonbounceDependencies"]),

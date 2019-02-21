@@ -10,11 +10,13 @@ import NetworkExtension
 import Network
 import SwiftQueue
 import Transport
+import Replicant
+import ReplicantSwift
 
 class PacketTunnelProvider: NEPacketTunnelProvider
 {
     /// Use this to create connections
-    var connectionFactory: NetworkConnectionFactory?
+    var connectionFactory: ConnectionFactory?
     
     /// The tunnel connection.
     open var connection: Connection?
@@ -41,11 +43,16 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     var connectionAttemptStatus: ConnectionAttemptStatus = .initialized
     
     // Testing Properties
-    let testIPString = "10.0.1.6"
+    let testIPString = "192.168.1.72"
     let testPort: UInt16 = 1234
+    let serverPublicKey = "BMfps8ZfYYvIdU2eSNsbHJfYnFKGgtlTK3Osyqo\\/BHOP8Djzkxk03SHD8auOFhI4PxfrhSeIQ8q8JDNJOy+2ulQ=".data
+    let chunkSize: UInt16 = 2000
+    let chunkTimeout: Int = 1000
 
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void)
     {
+        logQueue.enqueue("startTunnel called")
+        
         switch connectionAttemptStatus
         {
         case .initialized:
@@ -55,16 +62,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         case .connecting:
             connectionAttemptStatus = .started
         }
-        
-        logQueue.enqueue("startTunnel called")
-        
+
         // Save the completion handler for when the tunnel is fully established.
         pendingStartCompletion = completionHandler
         
 //        guard let serverAddress: String = self.protocolConfiguration.serverAddress
 //            else
 //        {
-//            logQueue.enqueue("Unable to resolve server address.")
+//            logQueue.enqueue("Unable to get the server address.")
 //            completionHandler(TunnelError.badConfiguration)
 //            return
 //        }
@@ -84,8 +89,18 @@ class PacketTunnelProvider: NEPacketTunnelProvider
             return
         }
         
+        
+        //Replace with Replicant connection Factory
+//        guard let config = ReplicantConfig(serverPublicKey: serverPublicKey, chunkSize: chunkSize, chunkTimeout: chunkTimeout, addSequences: nil, removeSequences: nil)
+//        else
+//        {
+//            logQueue.enqueue("Unable to create test Replicant Config.")
+//            return
+//        }
+        
         connectionFactory = NetworkConnectionFactory(host: host, port: port)
-        logQueue.enqueue("\nConnection Factory Created.\nHost - \(host)\nPort - \(port)\n")        
+        //connectionFactory = ReplicantConnectionFactory(host: host, port: port, config: config)
+        logQueue.enqueue("\nConnection Factory Created.\nHost - \(host)\nPort - \(port)\n")
     }
     
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
@@ -108,6 +123,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     
     override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?)
     {
+        logQueue.enqueue("handleAppMessage called")
+        
         switch connectionAttemptStatus
         {
         case .initialized:
@@ -127,7 +144,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         }
         else
         {
-            responseString = ""
+            responseString = "\n*******No Messages in the queue.*******\n"
         }
         
         let responseData = responseString.data(using: String.Encoding.utf8)
@@ -147,6 +164,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     open func closeTunnelWithError(_ error: Error?)
     {
         logQueue.enqueue("Closing the tunnel with error: \(String(describing: error))")
+        
         lastError = error
         pendingStartCompletion?(error)
         
@@ -206,6 +224,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     func tunnelSettingsCompleted(maybeError: Error?)
     {
         logQueue.enqueue("Tunnel settings updated.")
+        
         if let error = maybeError
         {
             self.logQueue.enqueue("Failed to set the tunnel network settings: \(error)")
@@ -259,6 +278,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         
         let parameters = NWParameters.tcp
         let connectQueue = DispatchQueue(label: "connectQueue")
+        
+        // ToDo: Make sure this is a valid Replicant Connection
         connection = connectionFactory.connect(using: parameters)
         connection?.stateUpdateHandler = handleStateUpdate
         
@@ -282,11 +303,23 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         {
         case .ready:
             // Start reading messages from the tunnel connection.
-            self.tunnelConnection?.startHandlingPackets()
+            guard let connection = tunnelConnection
+            else
+            {
+                logQueue.enqueue("New state is ready, but the tunnel connection is nil.")
+                startCompletion(TunnelError.badConnection)
+                return
+            }
+            
+            connection.startHandlingPackets()
             
             // Open the logical flow of packets through the tunnel.
-            let newConnection = ClientTunnelConnection(clientPacketFlow: self.packetFlow)
+            let newConnection = ClientTunnelConnection(clientPacketFlow: self.packetFlow, logQueue: logQueue)
+            //let newConnection = ClientTunnelConnection(clientPacketFlow: self.packetFlow, replicantConnection: connection.replicantConnection, logQueue: logQueue)
             self.logQueue.enqueue("\n🚀 open() called on tunnel connection  🚀\n")
+            newConnection.startHandlingPackets()
+            newConnection.startGettingPackets()
+            
             self.tunnelConnection = newConnection
             startCompletion(nil)
             

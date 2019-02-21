@@ -27,6 +27,9 @@
 		AE9BE65F221788A900304947 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BE65D2217889B00304947 /* NetworkExtension.framework */; };
 		AE9BE6612217940000304947 /* TunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9BE6602217940000304947 /* TunnelController.swift */; };
 		AE9BE6632217976D00304947 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9BE6622217976D00304947 /* Tunnel.swift */; };
+		AE9BE677221B596A00304947 /* Replicant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; };
+		AE9BE678221B597E00304947 /* ReplicantSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; };
+		AE9BE6A3221CC7AB00304947 /* Flower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BE6A2221CC7AB00304947 /* Flower.framework */; };
 		AEE9429121F278AD00213EE7 /* MoonbounceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */; };
 		AEE9429321F278BE00213EE7 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429221F278BE00213EE7 /* ConfigController.swift */; };
 		CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,7 +38,6 @@
 		CA0BBD762210C82500007659 /* ZIPFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD6A2210C75100007659 /* ZIPFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA0BBD772210C82500007659 /* ReplicantSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA0BBD782210C82500007659 /* Transport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD682210C75100007659 /* Transport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CA0BBD792210C82500007659 /* INI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD5E2210C75100007659 /* INI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,19 +76,19 @@
 			remoteGlobalIDString = "SwiftQueue::SwiftQueue";
 			remoteInfo = SwiftQueue;
 		};
+		AE9BE6A1221CC7AB00304947 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Flower::Flower::Product";
+			remoteInfo = Flower;
+		};
 		CA0BBD5B2210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = "Datable::Datable::Product";
 			remoteInfo = Datable;
-		};
-		CA0BBD5D2210C75100007659 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "INI::INI::Product";
-			remoteInfo = INI;
 		};
 		CA0BBD5F2210C75100007659 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -157,7 +159,6 @@
 				CA0BBD762210C82500007659 /* ZIPFoundation.framework in Embed Frameworks */,
 				CA0BBD772210C82500007659 /* ReplicantSwift.framework in Embed Frameworks */,
 				CA0BBD782210C82500007659 /* Transport.framework in Embed Frameworks */,
-				CA0BBD792210C82500007659 /* INI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +224,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9BE6A3221CC7AB00304947 /* Flower.framework in Frameworks */,
+				AE9BE678221B597E00304947 /* ReplicantSwift.framework in Frameworks */,
+				AE9BE677221B596A00304947 /* Replicant.framework in Frameworks */,
 				AE135AD922136D0200E81823 /* SwiftQueue.framework in Frameworks */,
 				AE9BE65E2217889B00304947 /* NetworkExtension.framework in Frameworks */,
 			);
@@ -349,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				CA0BBD5C2210C75100007659 /* Datable.framework */,
-				CA0BBD5E2210C75100007659 /* INI.framework */,
+				AE9BE6A2221CC7AB00304947 /* Flower.framework */,
 				CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */,
 				CA0BBD622210C75100007659 /* MoonbounceDependenciesTests.xctest */,
 				CA0BBD642210C75100007659 /* Replicant.framework */,
@@ -527,18 +531,18 @@
 			remoteRef = AE135AD622136CED00E81823 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AE9BE6A2221CC7AB00304947 /* Flower.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Flower.framework;
+			remoteRef = AE9BE6A1221CC7AB00304947 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		CA0BBD5C2210C75100007659 /* Datable.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Datable.framework;
 			remoteRef = CA0BBD5B2210C75100007659 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA0BBD5E2210C75100007659 /* INI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = INI.framework;
-			remoteRef = CA0BBD5D2210C75100007659 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */ = {
