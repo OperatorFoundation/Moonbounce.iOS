@@ -173,7 +173,7 @@ class DetailViewController: UIViewController
                     }
                     else
                     {
-                        NSLog("Anyone Listening: Got a nil response from the provider")
+                        NSLog("Got a nil response from the provider")
                     }
                 }
             }

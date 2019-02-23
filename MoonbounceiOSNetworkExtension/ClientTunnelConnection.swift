@@ -10,87 +10,80 @@ import Foundation
 import NetworkExtension
 import Replicant
 import SwiftQueue
-//import Flower
+import Flower
 
 /// An object used to tunnel IP packets using the SimpleTunnel protocol.
 public class ClientTunnelConnection
 {
     /// The flow of IP packets.
     let packetFlow: NEPacketTunnelFlow
-    //let replicantConnection: ReplicantConnection
     
     /// A Queue of Log Messages
-    let logQueue: Queue<String>
+    var logQueue = Queue<String>()
+    let replicantConnection: ReplicantConnection
     
     // MARK: Initializers
     
-//    init(clientPacketFlow: NEPacketTunnelFlow, replicantConnection: ReplicantConnection, logQueue: Queue<String>)
-//    {
-//        self.packetFlow = clientPacketFlow
-//        self.replicantConnection = replicantConnection
-//        self.logQueue = logQueue
-//    }
-    
-    init(clientPacketFlow: NEPacketTunnelFlow, logQueue: Queue<String>)
+    init(clientPacketFlow: NEPacketTunnelFlow, replicantConnection: ReplicantConnection, logQueue: Queue<String>)
     {
-        self.packetFlow = clientPacketFlow
         self.logQueue = logQueue
-        
+        self.packetFlow = clientPacketFlow
+        self.replicantConnection = replicantConnection
         self.logQueue.enqueue("Initialized ClientTunnelConnection")
     }
-    
+
     // MARK: Interface
     
     /// Handle packets coming from the packet flow.
     func handlePackets()
     {
         logQueue.enqueue("Handle Packets Called")
-//        // This is where you should send the packets to the server.
-//
-//        // Read more packets.
-//        self.packetFlow.readPackets
-//        {
-//            inPackets, inProtocols in
-//
-//            let packages = zip(inPackets, inProtocols)
-//
-//            for (packet, prot) in packages
-//            {
-//                // Check if protocol is v4 or v6
-//                switch prot
-//                {
-//                case 4:
-//                    print("Ipv4 protocol")
-//
-////                    let message = Message.IPDataV4(packet)
-////                    self.replicantConnection.writeMessage(message: message, completion:
-////                    {
-////                        (maybeError) in
-////
-////                        if let error = maybeError
-////                        {
-////                            self.logQueue.enqueue("Error writing message: \(error)")
-////                        }
-////                    })
-//                case 6:
-//                    print("IPv6 prtocol")
-////                    let message = Message.IPDataV6(packet)
-////                    self.replicantConnection.writeMessage(message: message, completion:
-////                    {
-////                        (maybeError) in
-////
-////                        if let error = maybeError
-////                        {
-////                            self.logQueue.enqueue("Error writing message: \(error)")
-////                        }
-////                    })
-//                default:
-//                    self.logQueue.enqueue("Unsupported protocol type: \(prot)")
-//                }
-//            }
-//
-//            self.handlePackets()
-//        }
+        // This is where you should send the packets to the server.
+
+        // Read more packets.
+        self.packetFlow.readPackets
+        {
+            inPackets, inProtocols in
+
+            let packages = zip(inPackets, inProtocols)
+
+            for (packet, prot) in packages
+            {
+                // Check if protocol is v4 or v6
+                switch prot
+                {
+                case 4:
+                    self.logQueue.enqueue("Ipv4 protocol")
+
+                    let message = Message.IPDataV4(packet)
+                    self.replicantConnection.writeMessage(message: message, completion:
+                    {
+                        (maybeError) in
+
+                        if let error = maybeError
+                        {
+                            self.logQueue.enqueue("Error writing message: \(error)")
+                        }
+                    })
+                case 6:
+                    self.logQueue.enqueue("IPv6 prtocol")
+                    let message = Message.IPDataV6(packet)
+                    self.replicantConnection.writeMessage(message: message, completion:
+                    {
+                        (maybeError) in
+
+                        if let error = maybeError
+                        {
+                            self.logQueue.enqueue("Error writing message: \(error)")
+                        }
+                    })
+                default:
+                    self.logQueue.enqueue("Unsupported protocol type: \(prot)")
+                }
+            }
+
+            self.handlePackets()
+        }
     }
     
     /// Make the initial readPacketsWithCompletionHandler call.
@@ -111,19 +104,19 @@ public class ClientTunnelConnection
     
     public func startGettingPackets()
     {
-//        replicantConnection.readMessages
-//        {
-//            message in
-//
-//            switch message
-//            {
-//            case .IPDataV4(let data):
-//                self.packetFlow.writePackets([data], withProtocols: [4])
-//            case .IPDataV6(let data):
-//                self.packetFlow.writePackets([data], withProtocols: [6])
-//            default:
-//                self.logQueue.enqueue("unsupported message type")
-//            }
-//        }
+        replicantConnection.readMessages
+        {
+            message in
+
+            switch message
+            {
+            case .IPDataV4(let data):
+                self.packetFlow.writePackets([data], withProtocols: [4])
+            case .IPDataV6(let data):
+                self.packetFlow.writePackets([data], withProtocols: [6])
+            default:
+                self.logQueue.enqueue("unsupported message type")
+            }
+        }
     }
 }

@@ -27,9 +27,10 @@
 		AE9BE65F221788A900304947 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BE65D2217889B00304947 /* NetworkExtension.framework */; };
 		AE9BE6612217940000304947 /* TunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9BE6602217940000304947 /* TunnelController.swift */; };
 		AE9BE6632217976D00304947 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9BE6622217976D00304947 /* Tunnel.swift */; };
-		AE9BE677221B596A00304947 /* Replicant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; };
-		AE9BE678221B597E00304947 /* ReplicantSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; };
-		AE9BE6A3221CC7AB00304947 /* Flower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9BE6A2221CC7AB00304947 /* Flower.framework */; };
+		AEA33164221F6C6800F3C57E /* Replicant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; };
+		AEA33165221F6C6E00F3C57E /* ReplicantSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; };
+		AEA331AF2220FF6700F3C57E /* Flower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA331AE2220FF4500F3C57E /* Flower.framework */; };
+		AEA331B02221035300F3C57E /* Flower.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEA331AE2220FF4500F3C57E /* Flower.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEE9429121F278AD00213EE7 /* MoonbounceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */; };
 		AEE9429321F278BE00213EE7 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429221F278BE00213EE7 /* ConfigController.swift */; };
 		CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -76,7 +77,7 @@
 			remoteGlobalIDString = "SwiftQueue::SwiftQueue";
 			remoteInfo = SwiftQueue;
 		};
-		AE9BE6A1221CC7AB00304947 /* PBXContainerItemProxy */ = {
+		AEA331AD2220FF4500F3C57E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */;
 			proxyType = 2;
@@ -152,6 +153,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AEA331B02221035300F3C57E /* Flower.framework in Embed Frameworks */,
 				CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */,
 				CA0BBD742210C82500007659 /* Datable.framework in Embed Frameworks */,
 				AE135AF422139DCD00E81823 /* SwiftQueue.framework in Embed Frameworks */,
@@ -224,9 +226,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9BE6A3221CC7AB00304947 /* Flower.framework in Frameworks */,
-				AE9BE678221B597E00304947 /* ReplicantSwift.framework in Frameworks */,
-				AE9BE677221B596A00304947 /* Replicant.framework in Frameworks */,
+				AEA331AF2220FF6700F3C57E /* Flower.framework in Frameworks */,
+				AEA33165221F6C6E00F3C57E /* ReplicantSwift.framework in Frameworks */,
+				AEA33164221F6C6800F3C57E /* Replicant.framework in Frameworks */,
 				AE135AD922136D0200E81823 /* SwiftQueue.framework in Frameworks */,
 				AE9BE65E2217889B00304947 /* NetworkExtension.framework in Frameworks */,
 			);
@@ -353,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				CA0BBD5C2210C75100007659 /* Datable.framework */,
-				AE9BE6A2221CC7AB00304947 /* Flower.framework */,
+				AEA331AE2220FF4500F3C57E /* Flower.framework */,
 				CA0BBD602210C75100007659 /* MoonbounceDependencies.framework */,
 				CA0BBD622210C75100007659 /* MoonbounceDependenciesTests.xctest */,
 				CA0BBD642210C75100007659 /* Replicant.framework */,
@@ -531,11 +533,11 @@
 			remoteRef = AE135AD622136CED00E81823 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AE9BE6A2221CC7AB00304947 /* Flower.framework */ = {
+		AEA331AE2220FF4500F3C57E /* Flower.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Flower.framework;
-			remoteRef = AE9BE6A1221CC7AB00304947 /* PBXContainerItemProxy */;
+			remoteRef = AEA331AD2220FF4500F3C57E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		CA0BBD5C2210C75100007659 /* Datable.framework */ = {
