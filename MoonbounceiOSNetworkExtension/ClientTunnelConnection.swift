@@ -111,8 +111,10 @@ public class ClientTunnelConnection
             switch message
             {
             case .IPDataV4(let data):
+                self.logQueue.enqueue("IPDataV4 calling write packets.")
                 self.packetFlow.writePackets([data], withProtocols: [4])
             case .IPDataV6(let data):
+                self.logQueue.enqueue("IPDataV4 calling write packets.")
                 self.packetFlow.writePackets([data], withProtocols: [6])
             default:
                 self.logQueue.enqueue("unsupported message type")

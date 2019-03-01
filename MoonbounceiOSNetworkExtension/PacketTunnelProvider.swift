@@ -106,7 +106,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
             return
         }
         
-        replicantConnectionFactory = ReplicantConnectionFactory(host: host, port: port, config: replicantConfig)
+        replicantConnectionFactory = ReplicantConnectionFactory(host: host, port: port, config: replicantConfig, logQueue: logQueue)
         logQueue.enqueue("\nConnection Factory Created.\nHost - \(host)\nPort - \(port)\n")        
     }
     
@@ -293,8 +293,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider
 
         // Kick off the connection to the server
         logQueue.enqueue("Kicking off the connection to the server.")
-        connection?.stateUpdateHandler = handleStateUpdate
-        connection?.start(queue: connectQueue)
+        connection!.stateUpdateHandler = handleStateUpdate
+        connection!.start(queue: connectQueue)
     }
     
     func handleStateUpdate(newState: NWConnection.State)
