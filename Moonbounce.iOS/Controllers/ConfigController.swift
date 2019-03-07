@@ -17,20 +17,15 @@ class  ConfigController
     
     var configs = [MoonbounceConfig]()
     
-    init(withDirectory directoryURL: URL)
+    init?()
     {
-        self.configsDirectory = directoryURL
-    }
-    
-    convenience init?()
-    {
-        guard let configsURL = ConfigController.getConfigDirectory()
+        guard let configsURL = ConfigController.getMainConfigDirectory()
             else
         {
             return nil
         }
         
-        self.init(withDirectory: configsURL)
+        self.configsDirectory = configsURL
     }
     
     func addConfig(atURL url: URL) -> Bool
@@ -38,9 +33,14 @@ class  ConfigController
         let configName = fileManager.displayName(atPath: url.path)
             //url.deletingPathExtension().lastPathComponent
         let thisConfigURL = url.appendingPathComponent(configName)
-        do
+        
+        guard let importDirectory = get(configDirectory: .importedDirectory)
+        else
         {
-            try fileManager.createDirectory(at: thisConfigURL, withIntermediateDirectories: true, attributes: nil)
+            print("Unable to get the config directory")
+            return false
+        }
+
             
             if configFilesAreValid(atURL: thisConfigURL)
             {
@@ -50,7 +50,7 @@ class  ConfigController
             {
                 do
                 {
-                    try fileManager.unzipItem(at: url, to: thisConfigURL, progress: nil)
+                    try fileManager.unzipItem(at: url, to: importDirectory, progress: nil)
                     
                     if configFilesAreValid(atURL: thisConfigURL)
                     {
@@ -59,17 +59,11 @@ class  ConfigController
                 }
                 catch let error
                 {
-                    print("Error creating config directory: \(error)")
+                    print("Error unzipping item: \(error)")
                     return false
                 }
             }
-        }
-            
-        catch let error
-        {
-            print("Unable to create configs directory: \(error)")
-            return false
-        }
+
         
         return false
     }
@@ -93,18 +87,20 @@ class  ConfigController
         do
         {
             let fileManager = FileManager.default
-            if let fileEnumerator = fileManager.enumerator(at: configURL, includingPropertiesForKeys: [.nameKey], options: [.skipsHiddenFiles], errorHandler:
-                {
-                    (url, error) -> Bool in
-                    
-                    print("File enumerator error at \(configURL.path): \(error.localizedDescription)")
-                    return true
+            if let fileEnumerator = fileManager.enumerator(at: configURL,
+                                                           includingPropertiesForKeys: [.nameKey],
+                                                           options: [.skipsHiddenFiles],
+                                                           errorHandler:
+            {
+                (url, error) -> Bool in
+                
+                print("File enumerator error at \(configURL.path): \(error.localizedDescription)")
+                return true
             })
             {
                 //Verify  that each of the following files are present as all config files are neccessary for successful connection:
-                let file1 = "replicant.config"
-                let file2 = "wireguard.config"
-                let file3 = "replicantClient.config"
+                let file1 = "replicantClient.config"
+                let file2 = "replicant.config"
                 
                 var fileNames = [String]()
                 for case let fileURL as URL in fileEnumerator
@@ -117,9 +113,10 @@ class  ConfigController
                 }
                 
                 //If all required files are present refresh server select button
-                if fileNames.contains(file1) && fileNames.contains(file2) && fileNames.contains(file3)
+                if fileNames.contains(file1)
                 {
-                    guard let replicantConfig = ReplicantConfig(withConfigAtPath: configURL.appendingPathComponent(file1).path)
+                    guard let clientConfig = ClientConfig(withConfigAtPath: configURL.appendingPathComponent(file2).path)
+                        
                     else
                     {
                         print("Unable to create replicant config from file at \(configURL.appendingPathComponent(file1))")
@@ -127,7 +124,9 @@ class  ConfigController
                         return false
                     }
                     
-                    let moonbounceConfig = MoonbounceConfig(name: configURL.lastPathComponent, replicantConfig: replicantConfig)
+                    let replicantConfig = ReplicantConfig(withConfigAtPath: configURL.appendingPathComponent(file1).path)
+                    
+                    let moonbounceConfig = MoonbounceConfig(name: configURL.lastPathComponent, clientConfig: clientConfig, replicantConfig: replicantConfig)
                     
                     self.configs.append(moonbounceConfig)
                     
@@ -155,7 +154,7 @@ class  ConfigController
         }
     }
     
-    static func getConfigDirectory() -> URL?
+    static func getMainConfigDirectory() -> URL?
     {
         
         guard let appDocumentsDirectory = documentsDirectoryURL()
@@ -168,4 +167,28 @@ class  ConfigController
         
         return configsURL
     }
+    
+    func get(configDirectory: ConfigDirectory) -> URL?
+    {
+        let thisDirectory = configsDirectory.appendingPathComponent(configDirectory.rawValue)
+        
+        do
+        {
+            try fileManager.createDirectory(at: thisDirectory, withIntermediateDirectories: true, attributes: nil)
+            return thisDirectory
+        }
+        catch let error
+        {
+            print("Error creating \(configDirectory.rawValue): \(error)")
+            return nil
+        }
+    }
+    
+}
+
+
+enum ConfigDirectory: String
+{
+    case importedDirectory = "Imported"
+    case defaultDirectory = "Default"
 }

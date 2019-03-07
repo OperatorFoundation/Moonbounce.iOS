@@ -12,21 +12,30 @@ import NetworkExtension
 class MasterViewController: UITableViewController, UIDocumentPickerDelegate
 {
     var detailViewController: DetailViewController? = nil
-    
+    let configController = ConfigController()
     let tunnelManager = TunnelController()
-    
-    /// A list of NEVPNManager objects for the packet tunnel configurations.
-    //var tunnels = [Tunnel]()
-    //var managers = [NEVPNManager]()
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
 
+        tunnelManager.addDefaultTunnel
+        {
+            (maybeError) in
+            
+            print("\nreturned from adding default config")
+            if let error = maybeError
+            {
+                print("\nReceived an error while adding default config: \(error)")
+            }
+            
+            self.tableView.reloadData()
+        }
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        
         navigationItem.rightBarButtonItem = addButton
+        navigationItem.leftBarButtonItem = editButtonItem
         
         if let split = splitViewController
         {
@@ -75,24 +84,26 @@ class MasterViewController: UITableViewController, UIDocumentPickerDelegate
     @objc
     func insertNewObject(_ sender: Any)
     {
-        tunnelManager.addDemoTunnel
-        {
-            (maybeError) in
-            
-            self.tableView.reloadData()
-        }
-//        let documentPicker = UIDocumentPickerViewController(documentTypes: ["Moonbounce"], in: .import)
-//        documentPicker.delegate = self
-//        present(documentPicker, animated: true, completion: nil)
+//        tunnelManager.addDemoTunnel
+//        {
+//            (maybeError) in
+//
+//            self.tableView.reloadData()
+//        }
+        
+        print("\ninsertNewObject called\n")
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["org.operatorfoundation.moonbounce"], in: .import)
+        documentPicker.delegate = self
+        present(documentPicker, animated: true, completion: nil)
     }
-    
-    func getFileURL() -> URL?
-    {
+//
+//    func getFileURL() -> URL?
+//    {
 //        let fileBrowser = FileBrowser()
 //        self.presentViewController(fileBrowser, animated: true, completion: nil)
-        
-        return nil
-    }
+//
+//        return nil
+//    }
     
     // MARK: - Document Picker Delegate
     
@@ -100,10 +111,16 @@ class MasterViewController: UITableViewController, UIDocumentPickerDelegate
     {
         for fileURL in urls
         {
-            //let configAdded = configController.addConfig(atURL: fileURL)
+            guard let configController = self.configController
+            else
+            {
+                return
+            }
             
-//            guard configAdded
-//                else { return }
+            let configAdded = configController.addConfig(atURL: fileURL)
+            
+            guard configAdded
+                else { return }
             
             let indexPath = IndexPath(row: 0, section: 0)
             tableView.insertRows(at: [indexPath], with: .automatic)

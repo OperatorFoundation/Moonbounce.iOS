@@ -31,6 +31,11 @@
 		AEA33165221F6C6E00F3C57E /* ReplicantSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD662210C75100007659 /* ReplicantSwift.framework */; };
 		AEA331AF2220FF6700F3C57E /* Flower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA331AE2220FF4500F3C57E /* Flower.framework */; };
 		AEA331B02221035300F3C57E /* Flower.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEA331AE2220FF4500F3C57E /* Flower.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEB6CA21222ED28E00F6658A /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB6CA20222ED28E00F6658A /* ClientConfig.swift */; };
+		AEB6CA22222ED28E00F6658A /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB6CA20222ED28E00F6658A /* ClientConfig.swift */; };
+		AEB6CA23222EDF2700F6658A /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9BE6622217976D00304947 /* Tunnel.swift */; };
+		AEB6CA24222EDF3400F6658A /* MoonbounceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */; };
+		AEB6CA26222EF33B00F6658A /* Default.moonbounce in Resources */ = {isa = PBXBuildFile; fileRef = AEB6CA25222EF33B00F6658A /* Default.moonbounce */; };
 		AEE9429121F278AD00213EE7 /* MoonbounceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */; };
 		AEE9429321F278BE00213EE7 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE9429221F278BE00213EE7 /* ConfigController.swift */; };
 		CA0BBD732210C82500007659 /* Replicant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA0BBD642210C75100007659 /* Replicant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -193,6 +198,8 @@
 		AE9BE65D2217889B00304947 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		AE9BE6602217940000304947 /* TunnelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelController.swift; sourceTree = "<group>"; };
 		AE9BE6622217976D00304947 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
+		AEB6CA20222ED28E00F6658A /* ClientConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
+		AEB6CA25222EF33B00F6658A /* Default.moonbounce */ = {isa = PBXFileReference; lastKnownFileType = file; path = Default.moonbounce; sourceTree = "<group>"; };
 		AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonbounceConfig.swift; sourceTree = "<group>"; };
 		AEE9429221F278BE00213EE7 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		CA0BBD3E2210C75100007659 /* MoonbounceDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoonbounceDependencies.xcodeproj; path = MoonbounceDependencies/MoonbounceDependencies.xcodeproj; sourceTree = "<group>"; };
@@ -264,6 +271,7 @@
 		468F589D21E972FD00E84ED8 /* Moonbounce.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AEB6CA25222EF33B00F6658A /* Default.moonbounce */,
 				AE9BE65A2217645D00304947 /* Moonbounce.iOS.entitlements */,
 				AE135AF02213973100E81823 /* SupportingFiles */,
 				AEE9427E21F2784E00213EE7 /* Models */,
@@ -336,6 +344,7 @@
 		AEE9427E21F2784E00213EE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AEB6CA20222ED28E00F6658A /* ClientConfig.swift */,
 				AEE9429021F278AD00213EE7 /* MoonbounceConfig.swift */,
 				AE9BE6622217976D00304947 /* Tunnel.swift */,
 			);
@@ -598,6 +607,7 @@
 			files = (
 				468F58AB21E9730100E84ED8 /* LaunchScreen.storyboard in Resources */,
 				468F58A821E9730100E84ED8 /* Assets.xcassets in Resources */,
+				AEB6CA26222EF33B00F6658A /* Default.moonbounce in Resources */,
 				468F58A621E972FD00E84ED8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +642,7 @@
 			files = (
 				AEE9429121F278AD00213EE7 /* MoonbounceConfig.swift in Sources */,
 				468F58A321E972FD00E84ED8 /* DetailViewController.swift in Sources */,
+				AEB6CA21222ED28E00F6658A /* ClientConfig.swift in Sources */,
 				468F58A121E972FD00E84ED8 /* MasterViewController.swift in Sources */,
 				AE135AF22213977500E81823 /* NEVPNStatus+CustomStriongConvertible.swift in Sources */,
 				AE9BE6612217940000304947 /* TunnelController.swift in Sources */,
@@ -661,8 +672,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB6CA23222EDF2700F6658A /* Tunnel.swift in Sources */,
 				AE135A9622135DD500E81823 /* NWTCPConnection+CustomStringConvertible.swift in Sources */,
 				AE135A9822135E2700E81823 /* ClientTunnelConnection.swift in Sources */,
+				AEB6CA22222ED28E00F6658A /* ClientConfig.swift in Sources */,
+				AEB6CA24222EDF3400F6658A /* MoonbounceConfig.swift in Sources */,
 				468F591921E97D9F00E84ED8 /* PacketTunnelProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

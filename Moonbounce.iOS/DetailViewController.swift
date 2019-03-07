@@ -45,34 +45,45 @@ class DetailViewController: UIViewController
         self.detailItem!.targetManager.loadFromPreferences(completionHandler:
         {
             (maybeError) in
-
+            
             if let error = maybeError
             {
                 print("\nError loading from preferences!\(error)\n")
                 return
             }
-
-            if self.detailItem!.targetManager.connection.status == .disconnected || self.detailItem!.targetManager.connection.status == .invalid
+            
+            self.detailItem!.targetManager.saveToPreferences
             {
-                print("\nConnect pressed, starting logging loop.\n")
-                self.startLoggingLoop()
+                (maybeSaveError) in
                 
-                do
+                if let error = maybeSaveError
                 {
-                    print("\nCalling startVPNTunnel on \(self.detailItem!.targetManager.connection)\n")
-                    try self.detailItem!.targetManager.connection.startVPNTunnel()
+                    print("Error trying to save to preference after connect was pressed: \(error)")
+                    return
                 }
-                catch
+
+                if self.detailItem!.targetManager.connection.status == .disconnected || self.detailItem!.targetManager.connection.status == .invalid
                 {
-                    NSLog("\nFailed to start the VPN: \(error)\n")
+                    print("\nConnect pressed, starting logging loop.\n")
+                    self.startLoggingLoop()
+                    
+                    do
+                    {
+                        print("\nCalling startVPNTunnel on \(self.detailItem!.targetManager.connection)\n")
+                        try self.detailItem!.targetManager.connection.startVPNTunnel()
+                    }
+                    catch
+                    {
+                        NSLog("\nFailed to start the VPN: \(error)\n")
+                    }
+                    self.activityIndicator.stopAnimating()
                 }
-                self.activityIndicator.stopAnimating()
-            }
-            else
-            {
-                self.stopLoggingLoop()
-                self.detailItem!.targetManager.connection.stopVPNTunnel()
-                self.activityIndicator.stopAnimating()
+                else
+                {
+                    self.stopLoggingLoop()
+                    self.detailItem!.targetManager.connection.stopVPNTunnel()
+                    self.activityIndicator.stopAnimating()
+                }
             }
         })
     }

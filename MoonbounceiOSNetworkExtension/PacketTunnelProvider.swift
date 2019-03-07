@@ -44,11 +44,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     var connectionAttemptStatus: ConnectionAttemptStatus = .initialized
     
     // Testing Properties
-    let testIPString = "192.168.1.72"
-    let testPort: UInt16 = 1234
-    let serverPublicKey = Data(base64Encoded: "BL7+Vd087+p/roRp6jSzIWzG3qXhk2S4aefLcYjwRtxGanWUoeoIWmMkAHfiF11vA9d6rhiSjPDL0WFGiSr/Et+wwG7gOrLf8yovmtgSJlooqa7lcMtipTxegPAYtd5yZg==")
-    let chunkSize: UInt16 = 2000
-    let chunkTimeout: Int = 1000
+//    let testIPString = "192.168.1.72"
+//    let testPort: UInt16 = 1234
+//    let serverPublicKey = Data(base64Encoded: "BL7+Vd087+p/roRp6jSzIWzG3qXhk2S4aefLcYjwRtxGanWUoeoIWmMkAHfiF11vA9d6rhiSjPDL0WFGiSr/Et+wwG7gOrLf8yovmtgSJlooqa7lcMtipTxegPAYtd5yZg==")
+//    let chunkSize: UInt16 = 2000
+//    let chunkTimeout: Int = 1000
 
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void)
     {
@@ -63,52 +63,131 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         case .connecting:
             connectionAttemptStatus = .started
         }
-
+        
         // Save the completion handler for when the tunnel is fully established.
         pendingStartCompletion = completionHandler
         
-//        guard let serverAddress: String = self.protocolConfiguration.serverAddress
-//            else
-//        {
-//            logQueue.enqueue("Unable to get the server address.")
-//            completionHandler(TunnelError.badConfiguration)
-//            return
-//        }
-//        self.remoteHost = serverAddress
-        
-        self.remoteHost = testIPString
-        
-        
-        //FIXME: Needs to be the server address not hard-coded
-        let host = NWEndpoint.Host(testIPString)
-        self.logQueue.enqueue("Server address: \(host.debugDescription)")
-
-        guard let port = NWEndpoint.Port(rawValue: testPort)
+        guard let tunnelProviderProtocol = protocolConfiguration as? NETunnelProviderProtocol
             else
         {
-            logQueue.enqueue("Unable to get NWEndpoint.Port from UInt16: \(testPort).")
+            logQueue.enqueue("PacketTunnelProviderError: savedProtocolConfigurationIsInvalid")
             return
         }
         
-        //connectionFactory = NetworkConnectionFactory(host: host, port: port)
-        //let toneburstConfig = ToneBurstClientConfig
-        guard let publicKey = serverPublicKey
+        guard let serverAddress: String = self.protocolConfiguration.serverAddress
+            else
+        {
+            logQueue.enqueue("Unable to get the server address.")
+            completionHandler(TunnelError.badConfiguration)
+            return
+        }
+        
+        self.remoteHost = serverAddress
+        self.logQueue.enqueue("Server address: \(serverAddress)")
+        
+        // FIXME: Name needs to be provided
+        guard let moonbounceConfig = Tunnel.getMoonbounceConfig(fromProtocolConfiguration: tunnelProviderProtocol)
         else
         {
-            logQueue.enqueue("Failed to create server public key from string.")
+            logQueue.enqueue("Unable to get moonbounce config from protocol.")
             return
         }
         
-        guard let replicantConfig = ReplicantConfig(serverPublicKey: publicKey, chunkSize: chunkSize, chunkTimeout: chunkTimeout, toneBurst: nil)
-        else
+        let tunnelConfiguration = Tunnel(moonbounceConfig: moonbounceConfig, completionHandler:
         {
-            logQueue.enqueue("Failed to create replicant config for testing.")
+            (maybeError) in
+            
+            if let error = maybeError
+            {
+                self.logQueue.enqueue(error.localizedDescription)
+                return
+            }
+
+        })
+        
+        guard let replicantConfig = moonbounceConfig.replicantConfig
+            else
+        {
+            self.logQueue.enqueue("start tunnel failed to find a replicant configuration")
             return
         }
+        let host = moonbounceConfig.clientConfig.host
+        let port = moonbounceConfig.clientConfig.port
+        self.replicantConnectionFactory = ReplicantConnectionFactory(host: host,
+                                                                     port: port,
+                                                                     config: replicantConfig,
+                                                                     logQueue: self.logQueue)
         
-        replicantConnectionFactory = ReplicantConnectionFactory(host: host, port: port, config: replicantConfig, logQueue: logQueue)
-        logQueue.enqueue("\nConnection Factory Created.\nHost - \(host)\nPort - \(port)\n")        
+        self.logQueue.enqueue("\nReplicant Connection Factory Created.\nHost - \(host)\nPort - \(port)\n")
+//        guard let tunnelConfiguration = Tunnel(name: "Name Not Provided", protocolConfiguration: tunnelProviderProtocol)
+//        else
+//        {
+//            logQueue.enqueue("Start tunnel failed to create the tunnel configuration.")
+//            return
+//        }
+ 
     }
+    
+    
+//    override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void)
+//    {
+//        logQueue.enqueue("startTunnel called")
+//
+//        switch connectionAttemptStatus
+//        {
+//        case .initialized:
+//            connectionAttemptStatus = .started
+//        case .started:
+//            logQueue.enqueue("start tunnel called when tunnel was already started.")
+//        case .connecting:
+//            connectionAttemptStatus = .started
+//        }
+//
+//        // Save the completion handler for when the tunnel is fully established.
+//        pendingStartCompletion = completionHandler
+//
+////        guard let serverAddress: String = self.protocolConfiguration.serverAddress
+////            else
+////        {
+////            logQueue.enqueue("Unable to get the server address.")
+////            completionHandler(TunnelError.badConfiguration)
+////            return
+////        }
+////        self.remoteHost = serverAddress
+//
+//        self.remoteHost = testIPString
+//
+//
+//        //FIXME: Needs to be the server address not hard-coded
+//        let host = NWEndpoint.Host(testIPString)
+//        self.logQueue.enqueue("Server address: \(host.debugDescription)")
+//
+//        guard let port = NWEndpoint.Port(rawValue: testPort)
+//            else
+//        {
+//            logQueue.enqueue("Unable to get NWEndpoint.Port from UInt16: \(testPort).")
+//            return
+//        }
+//
+//        //connectionFactory = NetworkConnectionFactory(host: host, port: port)
+//        //let toneburstConfig = ToneBurstClientConfig
+//        guard let publicKey = serverPublicKey
+//        else
+//        {
+//            logQueue.enqueue("Failed to create server public key from string.")
+//            return
+//        }
+//
+//        guard let replicantConfig = ReplicantConfig(serverPublicKey: publicKey, chunkSize: chunkSize, chunkTimeout: chunkTimeout, toneBurst: nil)
+//        else
+//        {
+//            logQueue.enqueue("Failed to create replicant config for testing.")
+//            return
+//        }
+//
+//        replicantConnectionFactory = ReplicantConnectionFactory(host: host, port: port, config: replicantConfig, logQueue: logQueue)
+//        logQueue.enqueue("\nConnection Factory Created.\nHost - \(host)\nPort - \(port)\n")
+//    }
     
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void)
     {
@@ -133,7 +212,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         switch connectionAttemptStatus
         {
         case .initialized:
-            logQueue.enqueue("handleAppMessage called before start tunnel. Doing nothing...")
+            break
         case .started:
             connectionAttemptStatus = .connecting
             setTunnelSettings(configuration: [:])

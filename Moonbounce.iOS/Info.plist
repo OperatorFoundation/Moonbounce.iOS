@@ -60,6 +60,8 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Moonbounce Configuration File</string>
+			<key>UTTypeIconFile</key>
+			<string>fileIcon</string>
 			<key>UTTypeIdentifier</key>
 			<string>org.operatorfoundation.moonbounce</string>
 			<key>UTTypeTagSpecification</key>
@@ -78,6 +80,10 @@
 			<array>
 				<string>com.pkware.zip-archive</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>Moonbounce Configuration File</string>
+			<key>UTTypeIconFile</key>
+			<string>fileIcon</string>
 			<key>UTTypeIdentifier</key>
 			<string>org.operatorfoundation.moonbounce</string>
 			<key>UTTypeTagSpecification</key>
