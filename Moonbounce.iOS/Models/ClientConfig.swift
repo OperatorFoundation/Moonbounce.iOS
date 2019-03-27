@@ -106,15 +106,6 @@ public class ClientConfig: NSObject, Codable, NSSecureCoding
     }
 }
 
-//extension ClientConfig: Equatable
-//{
-//    public static func == (lhs: ClientConfig, rhs: ClientConfig) -> Bool
-//    {
-//        return lhs.host == rhs.host &&
-//            lhs.port == rhs.port
-//    }
-//}
-
 enum ClientConfigError: Error
 {
     case invalidPort

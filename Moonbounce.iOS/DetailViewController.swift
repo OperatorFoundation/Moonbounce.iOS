@@ -11,7 +11,6 @@ import NetworkExtension
 
 class DetailViewController: UIViewController
 {
-
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!

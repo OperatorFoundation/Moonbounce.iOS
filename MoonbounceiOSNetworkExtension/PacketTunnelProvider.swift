@@ -42,13 +42,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider
     
     /// To make sure that we don't try connecting repeatedly and unintentionally
     var connectionAttemptStatus: ConnectionAttemptStatus = .initialized
-    
-    // Testing Properties
-//    let testIPString = "192.168.1.72"
-//    let testPort: UInt16 = 1234
-//    let serverPublicKey = Data(base64Encoded: "BL7+Vd087+p/roRp6jSzIWzG3qXhk2S4aefLcYjwRtxGanWUoeoIWmMkAHfiF11vA9d6rhiSjPDL0WFGiSr/Et+wwG7gOrLf8yovmtgSJlooqa7lcMtipTxegPAYtd5yZg==")
-//    let chunkSize: UInt16 = 2000
-//    let chunkTimeout: Int = 1000
 
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void)
     {
@@ -71,6 +64,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
             else
         {
             logQueue.enqueue("PacketTunnelProviderError: savedProtocolConfigurationIsInvalid")
+            completionHandler(TunnelError.badConfiguration)
             return
         }
         
@@ -85,7 +79,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider
         self.remoteHost = serverAddress
         self.logQueue.enqueue("Server address: \(serverAddress)")
         
-        // FIXME: Name needs to be provided
         guard let moonbounceConfig = Tunnel.getMoonbounceConfig(fromProtocolConfiguration: tunnelProviderProtocol)
         else
         {
@@ -111,6 +104,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider
             self.logQueue.enqueue("start tunnel failed to find a replicant configuration")
             return
         }
+        
         let host = moonbounceConfig.clientConfig.host
         let port = moonbounceConfig.clientConfig.port
         self.replicantConnectionFactory = ReplicantConnectionFactory(host: host,
@@ -119,13 +113,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider
                                                                      logQueue: self.logQueue)
         
         self.logQueue.enqueue("\nReplicant Connection Factory Created.\nHost - \(host)\nPort - \(port)\n")
-//        guard let tunnelConfiguration = Tunnel(name: "Name Not Provided", protocolConfiguration: tunnelProviderProtocol)
-//        else
-//        {
-//            logQueue.enqueue("Start tunnel failed to create the tunnel configuration.")
-//            return
-//        }
- 
     }
     
     
