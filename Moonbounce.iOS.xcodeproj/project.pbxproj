@@ -971,6 +971,7 @@
 		468F592021E97D9F00E84ED8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = MoonbounceiOSNetworkExtension/MoonbounceiOSNetworkExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Y4NSLDQ3;
@@ -991,6 +992,7 @@
 		468F592121E97D9F00E84ED8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = MoonbounceiOSNetworkExtension/MoonbounceiOSNetworkExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Y4NSLDQ3;

@@ -21,6 +21,8 @@ extension NEVPNStatus: CustomStringConvertible
         case .connecting: return "Connecting"
         case .disconnecting: return "Disconnecting"
         case .reasserting: return "Reconnecting"
+        @unknown default:
+            return "Unknown"
         }
     }
 }

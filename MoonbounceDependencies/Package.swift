@@ -17,7 +17,7 @@ let package = Package(
         .package(url: "https://github.com/OperatorFoundation/Shapeshifter-Swift-Transports", from: "0.3.10"),
         .package(url: "https://github.com/OperatorFoundation/Datable", from: "1.0.5"),
         .package(url: "https://github.com/OperatorFoundation/ReplicantSwift", from: "0.2.3"),
-        .package(url: "https://github.com/OperatorFoundation/Flower", from: "0.0.6"),
+        .package(url: "https://github.com/OperatorFoundation/Flower", from: "0.0.7"),
         .package(url: "https://github.com/OperatorFoundation/SwiftQueue.git", from: "0.0.3")
     ],
     targets: [
