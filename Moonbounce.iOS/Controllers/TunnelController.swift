@@ -36,7 +36,7 @@ class TunnelController
             guard let vpnManagers = newManagers
                 else
             {
-                print("We think newManagers from load preferences is nil: \(newManagers)")
+                print("We think newManagers from load preferences is nil: \(String(describing: newManagers))")
                 return
                 
             }
